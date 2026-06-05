@@ -133,8 +133,12 @@ export default function Interactive3D({ progress = 1, isLoaded = true }: Interac
     const mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
 
     const handleMouseMove = (event: MouseEvent) => {
-      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      const w = window.innerWidth || 1;
+      const h = window.innerHeight || 1;
+      const mx = (event.clientX / w) * 2 - 1;
+      const my = -(event.clientY / h) * 2 + 1;
+      mouse.x = Number.isFinite(mx) ? mx : 0;
+      mouse.y = Number.isFinite(my) ? my : 0;
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -167,17 +171,29 @@ export default function Interactive3D({ progress = 1, isLoaded = true }: Interac
     const clock = new THREE.Clock();
 
     const animate = () => {
-      const time = clock.getElapsedTime();
-      const currentProgress = animStateRef.current.progress;
-      const loaded = animStateRef.current.isLoaded;
+      const time = clock.getElapsedTime() || 0;
+      let currentProgress = animStateRef.current.progress;
+      if (typeof currentProgress !== "number" || !Number.isFinite(currentProgress)) {
+        currentProgress = 0;
+      }
+      const loaded = !!animStateRef.current.isLoaded;
 
       // Interpolation ratio (0 to 1) with ease-in-out curve
       const lerpRatio = currentProgress / 100;
-      const easeRatio = Math.sin((lerpRatio * Math.PI) / 2);
+      const easeRatio = Number.isFinite(lerpRatio) ? Math.sin((lerpRatio * Math.PI) / 2) : 0;
 
-      // Lerp mouse coordinates
-      mouse.targetX += (mouse.x - mouse.targetX) * 0.05;
-      mouse.targetY += (mouse.y - mouse.targetY) * 0.05;
+      // Lerp mouse coordinates with safety checks
+      const mx = Number.isFinite(mouse.x) ? mouse.x : 0;
+      const my = Number.isFinite(mouse.y) ? mouse.y : 0;
+      if (!Number.isFinite(mouse.targetX)) mouse.targetX = 0;
+      if (!Number.isFinite(mouse.targetY)) mouse.targetY = 0;
+
+      mouse.targetX += (mx - mouse.targetX) * 0.05;
+      mouse.targetY += (my - mouse.targetY) * 0.05;
+
+      // Ensure final target values are finite
+      if (!Number.isFinite(mouse.targetX)) mouse.targetX = 0;
+      if (!Number.isFinite(mouse.targetY)) mouse.targetY = 0;
 
       // Base rotation: slow orbital spin during load, very gentle when loaded
       const rotSpeed = loaded ? 0.02 : 0.2;
@@ -250,14 +266,15 @@ export default function Interactive3D({ progress = 1, isLoaded = true }: Interac
           y *= pulse;
         }
 
-        positionsArr[i3] = x;
-        positionsArr[i3 + 1] = y;
-        positionsArr[i3 + 2] = z;
+        // Safety fallback checks to prevent any NaN/Infinity in rendering
+        positionsArr[i3] = Number.isFinite(x) ? x : gridX;
+        positionsArr[i3 + 1] = Number.isFinite(y) ? y : baseYVal;
+        positionsArr[i3 + 2] = Number.isFinite(z) ? z : gridZ;
 
         // Dynamic Color Shifting based on height or vortex depth
         const refHeight = loaded ? y : Math.sqrt(x * x + y * y);
         const normVal = loaded ? (refHeight + 4.5) / 9.0 : (refHeight / 26.0);
-        const clampVal = Math.max(0, Math.min(1, normVal));
+        const clampVal = Math.max(0, Math.min(1, Number.isFinite(normVal) ? normVal : 0.5));
         
         const mixedColor = new THREE.Color();
         if (clampVal < 0.45) {
