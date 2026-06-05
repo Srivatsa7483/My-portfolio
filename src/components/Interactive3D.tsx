@@ -6,8 +6,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface Interactive3DProps {
-  progress: number;
-  isLoaded: boolean;
+  progress?: number;
+  isLoaded?: boolean;
 }
 
 // Helper to create a glowing circular star texture on a 2D canvas context
@@ -29,7 +29,7 @@ const createGlowingParticleTexture = () => {
   return texture;
 };
 
-export default function Interactive3D({ progress, isLoaded }: Interactive3DProps) {
+export default function Interactive3D({ progress = 1, isLoaded = true }: Interactive3DProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const animStateRef = useRef({ progress: 0, isLoaded: false });
 
