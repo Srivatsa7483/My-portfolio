@@ -3,19 +3,19 @@
 import { useEffect, useRef, useState } from "react";
 import { portfolioData, Project } from "@/config/portfolio";
 
-import { 
-  ArrowUpRight, 
+import {
+  ArrowUpRight,
   ArrowRight,
-  Mail, 
+  Mail,
   Phone,
-  Compass, 
-  Folder, 
-  Cpu, 
-  Terminal, 
-  ChevronRight, 
-  ChevronDown, 
-  X, 
-  Maximize2 
+  Compass,
+  Folder,
+  Cpu,
+  Terminal,
+  ChevronRight,
+  ChevronDown,
+  X,
+  Maximize2
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -30,7 +30,8 @@ export default function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [detailActiveImg, setDetailActiveImg] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
-  
+
+
   const worksSectionRef = useRef<HTMLDivElement | null>(null);
   const previewRef = useRef<HTMLDivElement | null>(null);
 
@@ -425,7 +426,7 @@ export default function Home() {
 
         <header className="hero-fade-up sticky top-0 z-40 w-full select-none">
           <div className="flex items-center justify-between px-6 md:px-12 h-16 border-b border-neutral-900/80 bg-[#080808]/70 backdrop-blur-xl">
-            
+
             {/* Logo / Monogram */}
             <div
               className="flex items-center gap-2.5 cursor-pointer magnetic group"
@@ -466,10 +467,10 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-1 text-neutral-500">
                 <a href={portfolioData.socials.github} target="_blank" rel="noreferrer" className="hover:text-[#F5F5F7] transition-colors magnetic p-2 rounded-lg hover:bg-neutral-800/60">
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
                 </a>
                 <a href={portfolioData.socials.linkedin} target="_blank" rel="noreferrer" className="hover:text-[#F5F5F7] transition-colors magnetic p-2 rounded-lg hover:bg-neutral-800/60">
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
                 </a>
                 <a href={`mailto:${portfolioData.email}`} className="hover:text-[#F5F5F7] transition-colors magnetic p-2 rounded-lg hover:bg-neutral-800/60">
                   <Mail size={16} />
@@ -543,15 +544,15 @@ export default function Home() {
       {/* 2. SCROLL SEQUENCE REVEAL SECTION */}
       <section className="sequence-trigger-section relative w-full h-[60vh] md:h-[80vh] flex flex-col justify-center items-center bg-[#050505] overflow-hidden">
         <div className="sequence-image-card absolute inset-0 w-full h-full opacity-35 z-0">
-          <Image 
-            src="/projects/cyberdiag.png" 
-            alt="Sequence Background" 
+          <Image
+            src="/projects/cyberdiag.png"
+            alt="Sequence Background"
             fill
             className="object-cover"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-[#080808]" />
-        
+
         <div className="sequence-text relative z-10 text-center px-4 max-w-4xl">
           <div className="text-xs uppercase tracking-widest text-red-500 font-mono mb-4">Core Philosophy</div>
           <h2 className="section-heading font-display-heavy text-4xl md:text-7xl tracking-tighter leading-none uppercase">
@@ -575,8 +576,8 @@ export default function Home() {
               {portfolioData.bioSubhead}
             </p>
           </div>
-          
-          <div 
+
+          <div
             className="glow-card border border-neutral-800 p-6 rounded-xl max-w-md relative select-none"
             onMouseMove={handleCardMouseMove}
           >
@@ -584,7 +585,7 @@ export default function Home() {
             <span className="frame-corner tr" />
             <span className="frame-corner bl" />
             <span className="frame-corner br" />
-            
+
             <div className="glow-card-content">
               <div className="font-mono text-xs text-red-500 uppercase tracking-widest mb-3 flex items-center">
                 <Terminal size={14} className="mr-2" /> System Diagnosis
@@ -602,10 +603,10 @@ export default function Home() {
         <div className="flex justify-center lg:justify-end items-center">
           <div className="about-photo-wrap relative w-full max-w-md aspect-[3/4] border border-neutral-800 rounded-2xl overflow-hidden glass-card">
             <div className="about-photo-parallax absolute inset-0 w-full h-[120%]">
-              <Image 
-                src="/profile.png" 
-                alt={portfolioData.name} 
-                fill 
+              <Image
+                src="/profile.png"
+                alt={portfolioData.name}
+                fill
                 className="object-cover opacity-80"
               />
             </div>
@@ -640,7 +641,7 @@ export default function Home() {
               <TextScramble text="MY JOURNEY" />
             </h3>
           </div>
-          
+
           <div className="relative border-l border-neutral-800 pl-6 md:pl-8 space-y-12">
             {portfolioData.experiences.map((exp, index) => (
               <div key={index} className="experience-item relative group">
@@ -648,13 +649,13 @@ export default function Home() {
                 <span className="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center group-hover:border-red-500 transition-colors">
                   <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
                 </span>
-                
+
                 <div className="glow-card p-6 md:p-8 rounded-xl relative" onMouseMove={handleCardMouseMove}>
                   <span className="frame-corner tl" />
                   <span className="frame-corner tr" />
                   <span className="frame-corner bl" />
                   <span className="frame-corner br" />
-                  
+
                   <div className="glow-card-content">
                     <div className="flex flex-col md:flex-row justify-between md:items-start gap-4 mb-6">
                       <div>
@@ -688,13 +689,13 @@ export default function Home() {
             <TextScramble text="PROJECT DECK" />
           </h3>
         </div>
-        
+
         <div className="horizontal-scroll-content flex space-x-8 px-8 md:px-16 mt-20 md:mt-28">
           {portfolioData.projects.map((project, idx) => {
             const isAppProject = project.category === "App Development";
             return (
-              <div 
-                key={project.id + "-deck"} 
+              <div
+                key={project.id + "-deck"}
                 className="relative flex-shrink-0 w-[300px] md:w-[450px] aspect-[4/3] group border border-neutral-800 rounded-2xl overflow-hidden glass-card cursor-pointer"
                 onMouseEnter={() => setHoveredProject(project)}
                 onMouseLeave={() => setHoveredProject(null)}
@@ -705,13 +706,12 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-[#0d0d16] to-[#080808]" />
                 )}
                 <div className="absolute inset-0 z-10 bg-[#080808]/30 group-hover:bg-[#080808]/10 transition-colors duration-300" />
-                <Image 
-                  src={project.coverImage} 
-                  alt={project.title} 
-                  fill 
-                  className={`transition-transform duration-500 group-hover:scale-105 ${
-                    isAppProject ? "object-contain p-4" : "object-cover"
-                  }`}
+                <Image
+                  src={project.coverImage}
+                  alt={project.title}
+                  fill
+                  className={`transition-transform duration-500 group-hover:scale-105 ${isAppProject ? "object-contain p-4" : "object-cover"
+                    }`}
                 />
                 <div className="absolute bottom-6 left-6 right-6 z-20 flex justify-between items-end">
                   <div>
@@ -734,9 +734,9 @@ export default function Home() {
       <section id="works" className="py-20 md:py-32 px-8 md:px-16 border-t border-neutral-900 relative">
         {/* Scroll Drawing Wave SVG Path */}
         <svg className="scroll-draw-svg top-[-80px] left-0 w-full h-[160px]" viewBox="0 0 1400 160" preserveAspectRatio="none">
-          <path 
-            className="scroll-draw-path" 
-            d="M 0,80 C 350,15 700,145 1050,45 T 1400,80" 
+          <path
+            className="scroll-draw-path"
+            d="M 0,80 C 350,15 700,145 1050,45 T 1400,80"
           />
         </svg>
 
@@ -760,11 +760,10 @@ export default function Home() {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2.5 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-300 border cursor-pointer ${
-                  isActive
+                className={`px-5 py-2.5 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-300 border cursor-pointer ${isActive
                     ? "bg-red-500 border-red-500 text-white shadow-[0_0_15px_rgba(230,57,70,0.4)]"
                     : "bg-[#050505]/40 border-neutral-800 text-neutral-400 hover:border-neutral-600 hover:text-[#F5F5F7]"
-                }`}
+                  }`}
               >
                 {cat}
               </button>
@@ -805,9 +804,8 @@ export default function Home() {
         {hoveredProject && (
           <div
             ref={previewRef}
-            className={`fixed pointer-events-none z-30 transition-transform duration-100 ease-out -translate-x-1/2 -translate-y-1/2 rounded-xl overflow-hidden border border-neutral-800 shadow-2xl glass-card w-60 h-40 md:w-80 md:h-52 ${
-              hoveredProject.category === "App Development" ? "bg-gradient-to-br from-neutral-900 via-[#0d0d16] to-[#080808]" : ""
-            }`}
+            className={`fixed pointer-events-none z-30 transition-transform duration-100 ease-out -translate-x-1/2 -translate-y-1/2 rounded-xl overflow-hidden border border-neutral-800 shadow-2xl glass-card w-60 h-40 md:w-80 md:h-52 ${hoveredProject.category === "App Development" ? "bg-gradient-to-br from-neutral-900 via-[#0d0d16] to-[#080808]" : ""
+              }`}
             style={{
               left: `${mousePos.x}px`,
               top: `${mousePos.y}px`,
@@ -837,8 +835,8 @@ export default function Home() {
                 A modular breakdown of core developer stacks, digital styling engines, system engineering and cybersecurity diagnostics tools.
               </p>
             </div>
-            
-            <div 
+
+            <div
               className="group border border-neutral-800 p-6 rounded-xl glass-card flex justify-between items-center cursor-pointer select-none transition-colors hover:border-red-500/50"
               onClick={() => scrollToSection("contact")}
             >
@@ -857,11 +855,10 @@ export default function Home() {
             {portfolioData.skills.map((group) => {
               const isOpen = activeSkillGroup === group.id;
               return (
-                <div 
+                <div
                   key={group.id}
-                  className={`glow-card rounded-xl p-6 relative cursor-pointer select-none transition-all duration-300 ${
-                    isOpen ? "md:col-span-2" : ""
-                  }`}
+                  className={`glow-card rounded-xl p-6 relative cursor-pointer select-none transition-all duration-300 ${isOpen ? "md:col-span-2" : ""
+                    }`}
                   onMouseMove={handleCardMouseMove}
                   onClick={() => setActiveSkillGroup(group.id)}
                 >
@@ -869,7 +866,7 @@ export default function Home() {
                   <span className="frame-corner tr" />
                   <span className="frame-corner bl" />
                   <span className="frame-corner br" />
-                  
+
                   <div className="glow-card-content">
                     <div className="flex justify-between items-center">
                       <h4 className="font-display-heavy text-lg uppercase tracking-tight text-[#F5F5F7] flex items-center">
@@ -884,15 +881,14 @@ export default function Home() {
                       </span>
                     </div>
 
-                    <div 
-                      className={`grid transition-all duration-500 ease-in-out ${
-                        isOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 pointer-events-none"
-                      }`}
+                    <div
+                      className={`grid transition-all duration-500 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 pointer-events-none"
+                        }`}
                     >
                       <div className="overflow-hidden">
                         <div className="flex flex-wrap gap-2">
                           {group.skills.map((skill) => (
-                            <span 
+                            <span
                               key={skill}
                               className="bg-neutral-900 border border-neutral-800 text-[#F5F5F7] font-mono text-xs px-3 py-1.5 rounded-md hover:border-red-500 transition-colors"
                             >
@@ -923,7 +919,7 @@ export default function Home() {
 
         <div className="border-t border-neutral-900">
           {portfolioData.awards.map((award, i) => (
-            <div 
+            <div
               key={award.org + "-" + i}
               className="py-6 border-b border-neutral-900 flex flex-col md:flex-row justify-between md:items-center text-sm font-mono text-neutral-400"
             >
@@ -955,15 +951,15 @@ export default function Home() {
             <p className="text-neutral-400 font-light leading-relaxed text-base md:text-lg max-w-md mb-8">
               Open for creative collaborations, freelance contracts, and software engineering opportunities. Drop a mail or connect via channels.
             </p>
-            
-            <a 
-              href={`mailto:${portfolioData.email}`} 
+
+            <a
+              href={`mailto:${portfolioData.email}`}
               className="inline-flex items-center font-display-heavy text-xl md:text-3xl tracking-tight text-[#F5F5F7] border-b border-red-500 hover:text-red-500 transition-colors pb-1 magnetic"
             >
               {portfolioData.email} <ArrowUpRight className="ml-3" size={24} />
             </a>
 
-            <a 
+            <a
               href={`tel:${portfolioData.phone}`}
               className="inline-flex items-center font-mono text-base md:text-lg text-neutral-400 hover:text-[#F5F5F7] transition-colors mt-4 group"
             >
@@ -980,10 +976,10 @@ export default function Home() {
                 <span className="frame-corner tr" />
                 <span className="frame-corner bl" />
                 <span className="frame-corner br" />
-                <Image 
-                  src="/art1.png" 
-                  alt="Art frame 1" 
-                  fill 
+                <Image
+                  src="/art1.png"
+                  alt="Art frame 1"
+                  fill
                   className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -992,10 +988,10 @@ export default function Home() {
                 <span className="frame-corner tr" />
                 <span className="frame-corner bl" />
                 <span className="frame-corner br" />
-                <Image 
-                  src="/art2.png" 
-                  alt="Art frame 2" 
-                  fill 
+                <Image
+                  src="/art2.png"
+                  alt="Art frame 2"
+                  fill
                   className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -1007,7 +1003,7 @@ export default function Home() {
         <div className="mt-32 pt-12 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-600 font-mono gap-6">
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <pre className="text-[6px] md:text-[8px] leading-tight text-neutral-800 select-none pointer-events-none">
-{`   ___ ___ _____   __ _ ___ 
+              {`   ___ ___ _____   __ _ ___ 
   / __| _ \\_ _\\ \\ / //_\\ __|
   \\__ \\   /| | \\ V // _ \\__ \\
   |___/_|_\\___| \\_//_/ \\_\\___/`}
@@ -1032,8 +1028,8 @@ export default function Home() {
             <div className="font-mono text-xs uppercase text-neutral-500">
               Project Archive / {selectedProject.category}
             </div>
-            
-            <button 
+
+            <button
               onClick={handleCloseProjectDetails}
               className="bg-neutral-900 border border-neutral-800 hover:border-red-500 text-neutral-400 hover:text-white p-2 rounded-full transition-colors cursor-pointer magnetic flex items-center justify-center"
             >
@@ -1048,11 +1044,11 @@ export default function Home() {
                 <span className="bg-neutral-900 border border-neutral-800 text-red-500 font-mono text-xs px-3 py-1 rounded-md">
                   {selectedProject.year}
                 </span>
-                
+
                 <h1 className="font-display-heavy text-4xl md:text-6xl uppercase tracking-tighter text-[#F5F5F7] mt-6 mb-8 leading-none">
                   {selectedProject.title}
                 </h1>
-                
+
                 <p className="text-neutral-400 font-light leading-relaxed text-base md:text-lg mb-8">
                   {selectedProject.longDescription}
                 </p>
@@ -1062,8 +1058,8 @@ export default function Home() {
                 <div className="text-xs uppercase font-mono text-neutral-500 tracking-wider mb-3">Technologies deployed</div>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.tags.map((tag) => (
-                    <span 
-                      key={tag} 
+                    <span
+                      key={tag}
                       className="bg-neutral-950 border border-neutral-800 text-xs font-mono text-neutral-400 px-3 py-1.5 rounded"
                     >
                       {tag}
@@ -1075,13 +1071,12 @@ export default function Home() {
 
             {/* Interactive Image Gallery showcase */}
             <div className="flex flex-col space-y-6">
-              <div className={`relative w-full border border-neutral-800 rounded-2xl overflow-hidden glass-card shadow-xl ${
-                selectedProject.category === "App Development" ? "aspect-[4/3] bg-gradient-to-br from-neutral-900 via-[#0d0d16] to-[#080808]" : "aspect-video"
-              }`}>
-                <Image 
-                  src={detailActiveImg || selectedProject.coverImage} 
-                  alt={selectedProject.title} 
-                  fill 
+              <div className={`relative w-full border border-neutral-800 rounded-2xl overflow-hidden glass-card shadow-xl ${selectedProject.category === "App Development" ? "aspect-[4/3] bg-gradient-to-br from-neutral-900 via-[#0d0d16] to-[#080808]" : "aspect-video"
+                }`}>
+                <Image
+                  src={detailActiveImg || selectedProject.coverImage}
+                  alt={selectedProject.title}
+                  fill
                   className={selectedProject.category === "App Development" ? "object-contain p-6" : "object-cover"}
                   priority
                 />
@@ -1093,18 +1088,16 @@ export default function Home() {
                   <button
                     key={i}
                     onClick={() => setDetailActiveImg(imgUrl)}
-                    className={`relative w-24 aspect-video border rounded-lg overflow-hidden transition-all cursor-pointer ${
-                      selectedProject.category === "App Development" ? "bg-neutral-900" : ""
-                    } ${
-                      (detailActiveImg === imgUrl || (!detailActiveImg && imgUrl === selectedProject.coverImage))
-                        ? "border-red-500 opacity-100 scale-95" 
+                    className={`relative w-24 aspect-video border rounded-lg overflow-hidden transition-all cursor-pointer ${selectedProject.category === "App Development" ? "bg-neutral-900" : ""
+                      } ${(detailActiveImg === imgUrl || (!detailActiveImg && imgUrl === selectedProject.coverImage))
+                        ? "border-red-500 opacity-100 scale-95"
                         : "border-neutral-800 opacity-50"
-                    }`}
+                      }`}
                   >
-                    <Image 
-                      src={imgUrl} 
-                      alt={`Thumbnail ${i}`} 
-                      fill 
+                    <Image
+                      src={imgUrl}
+                      alt={`Thumbnail ${i}`}
+                      fill
                       className={selectedProject.category === "App Development" ? "object-contain p-1" : "object-cover"}
                     />
                   </button>
@@ -1115,7 +1108,7 @@ export default function Home() {
 
           {/* Bottom Call to Action */}
           <div className="bg-[#050505] border-t border-neutral-900 p-8 flex justify-center items-center">
-            <button 
+            <button
               onClick={handleCloseProjectDetails}
               className="bg-neutral-900 border border-neutral-800 hover:border-red-500 text-[#F5F5F7] font-mono text-xs px-8 py-3 rounded-full uppercase tracking-wider transition-colors cursor-pointer magnetic"
             >
