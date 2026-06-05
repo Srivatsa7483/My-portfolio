@@ -604,7 +604,7 @@ export default function Home() {
           <div className="about-photo-wrap relative w-full max-w-md aspect-[3/4] border border-neutral-800 rounded-2xl overflow-hidden glass-card">
             <div className="about-photo-parallax absolute inset-0 w-full h-[120%]">
               <Image
-                src="/profile.png"
+                src="/profile.jpg?v=2"
                 alt={portfolioData.name}
                 fill
                 className="object-cover opacity-80"
